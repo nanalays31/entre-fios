@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Entre Fios</title>
+    <title>Entre Fios ♡</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -32,14 +33,6 @@
 
         header p {
             font-size: 19px;
-        }
-
-        .perfil {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid white;
         }
 
         .introducao {
@@ -78,7 +71,7 @@
             box-shadow: 0 8px 20px #0002;
         }
 
-        .topico .numero {
+        .numero {
             background: #d98da7;
             color: white;
             width: 45px;
@@ -103,7 +96,70 @@
             background: #f1c4d2;
         }
 
+        /* PÁGINA DE HIDRATAÇÃO */
+
+        .pagina {
+            display: none;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 20px #0001;
+        }
+
+        .pagina h2 {
+            text-align: center;
+            color: #b76582;
+            font-size: 38px;
+        }
+
+        .pagina h3 {
+            color: #b76582;
+            margin-top: 28px;
+        }
+
+        .pagina p,
+        .pagina li {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .voltar {
+            background: #d98da7;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .acoes {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #f0c6d3;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .acao {
+            border: none;
+            background: #fff0f5;
+            color: #a65776;
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .acao:hover {
+            background: #f4ceda;
+        }
+
         @media (max-width: 700px) {
+
             .topicos {
                 grid-template-columns: 1fr;
             }
@@ -111,94 +167,288 @@
             header h1 {
                 font-size: 40px;
             }
+
         }
+
     </style>
 </head>
 
 <body>
 
-    <header>
+    <!-- PÁGINA INICIAL -->
 
-        <!-- A foto será colocada aqui depois -->
+    <div id="inicio">
 
-        <h1>Entre Fios ♡</h1>
+        <header>
+
+            <h1>Entre Fios ♡</h1>
+
+            <p>
+                Dicas simples para cuidar do seu cabelo
+                e deixar seus fios ainda mais bonitos.
+            </p>
+
+        </header>
+
+        <section class="introducao">
+
+            <h2>Bem-vinda ao Entre Fios! 💗</h2>
+
+            <p>
+                Aqui você encontra dicas, cuidados e informações
+                para manter o cabelo bonito, saudável e bem cuidado.
+            </p>
+
+        </section>
+
+        <section class="topicos">
+
+            <div class="topico" onclick="abrirHidratacao()">
+
+                <div class="numero">01</div>
+
+                <h3>💧 Hidratação</h3>
+
+                <p>
+                    Aprenda como hidratar e cuidar dos seus fios.
+                </p>
+
+            </div>
+
+
+            <div class="topico" onclick="emBreve()">
+
+                <div class="numero">02</div>
+
+                <h3>🔥 Cuidados com a Chapinha</h3>
+
+                <p>
+                    Veja como proteger o cabelo do calor.
+                </p>
+
+            </div>
+
+
+            <div class="topico" onclick="emBreve()">
+
+                <div class="numero">03</div>
+
+                <h3>🫧 Como Lavar o Cabelo</h3>
+
+                <p>
+                    Confira dicas para lavar os fios corretamente.
+                </p>
+
+            </div>
+
+
+            <div class="topico" onclick="emBreve()">
+
+                <div class="numero">04</div>
+
+                <h3>✂️ Cuidados com as Pontas</h3>
+
+                <p>
+                    Descubra como manter as pontas bonitas.
+                </p>
+
+            </div>
+
+
+            <div class="topico" onclick="emBreve()">
+
+                <div class="numero">05</div>
+
+                <h3>🌸 Rotina de Cuidados</h3>
+
+                <p>
+                    Monte uma rotina simples para o seu cabelo.
+                </p>
+
+            </div>
+
+
+            <div class="topico" onclick="emBreve()">
+
+                <div class="numero">06</div>
+
+                <h3>💗 Lembre-se</h3>
+
+                <p>
+                    Cuide dos seus fios e ame o seu cabelo.
+                </p>
+
+            </div>
+
+        </section>
+
+        <footer>
+
+            <strong>Entre Fios ♡</strong>
+
+            <p>
+                Cuide do seu cabelo com carinho.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- PÁGINA DE HIDRATAÇÃO -->
+
+    <section id="hidratacao" class="pagina">
+
+        <button class="voltar" onclick="voltarInicio()">
+            ← Voltar para o início
+        </button>
+
+        <h2>💧 Hidratação Capilar</h2>
 
         <p>
-            Dicas simples para cuidar do seu cabelo
-            e deixar seus fios ainda mais bonitos.
+            A hidratação é um dos cuidados mais importantes
+            para manter o cabelo bonito, macio e saudável.
         </p>
 
-    </header>
 
-    <section class="introducao">
-
-        <h2>Bem-vinda ao Entre Fios! 💗</h2>
+        <h3>✨ O que é hidratação?</h3>
 
         <p>
-            Aqui você encontra dicas, cuidados e informações
-            para manter o cabelo bonito, saudável e bem cuidado.
+            A hidratação ajuda a repor água nos fios,
+            deixando o cabelo mais macio, brilhoso e com
+            uma aparência mais saudável.
         </p>
+
+
+        <h3>💗 Para que serve?</h3>
+
+        <p>
+            Ela pode ajudar a diminuir o ressecamento,
+            o frizz e o aspecto áspero dos fios.
+            Também deixa o cabelo mais leve e fácil de cuidar.
+        </p>
+
+
+        <h3>🫧 Como fazer?</h3>
+
+        <ol>
+
+            <li>Lave o cabelo com shampoo.</li>
+
+            <li>Retire o excesso de água.</li>
+
+            <li>Aplique a máscara no comprimento e nas pontas.</li>
+
+            <li>Deixe agir pelo tempo indicado na embalagem.</li>
+
+            <li>Enxágue bem e finalize como preferir.</li>
+
+        </ol>
+
+
+        <h3>📅 Com que frequência?</h3>
+
+        <p>
+            A frequência depende das necessidades de cada cabelo.
+            Para muitas pessoas, fazer hidratação cerca de uma
+            vez por semana pode ser uma boa forma de manter os fios
+            bem cuidados.
+        </p>
+
+
+        <h3>🌸 Dica Entre Fios</h3>
+
+        <p>
+            Não é necessário usar uma grande quantidade de produto.
+            O mais importante é escolher uma máscara adequada para
+            o seu tipo de cabelo e manter uma rotina de cuidados.
+        </p>
+
+
+        <div class="acoes">
+
+            <button class="acao" onclick="curtir()">
+                ♡ Curtir
+            </button>
+
+            <button class="acao" onclick="comentar()">
+                💬 Comentar
+            </button>
+
+            <button class="acao" onclick="favoritar()">
+                ☆ Favoritar
+            </button>
+
+            <button class="acao" onclick="compartilhar()">
+                ↗ Compartilhar
+            </button>
+
+        </div>
 
     </section>
 
-    <section class="topicos">
-
-        <div class="topico" onclick="abrirPagina('Hidratação')">
-            <div class="numero">01</div>
-            <h3>💧 Hidratação</h3>
-            <p>Aprenda como hidratar e cuidar dos seus fios.</p>
-        </div>
-
-        <div class="topico" onclick="abrirPagina('Cuidados com a Chapinha')">
-            <div class="numero">02</div>
-            <h3>🔥 Cuidados com a Chapinha</h3>
-            <p>Veja como proteger o cabelo do calor.</p>
-        </div>
-
-        <div class="topico" onclick="abrirPagina('Como Lavar o Cabelo')">
-            <div class="numero">03</div>
-            <h3>🫧 Como Lavar o Cabelo</h3>
-            <p>Confira dicas para lavar os fios corretamente.</p>
-        </div>
-
-        <div class="topico" onclick="abrirPagina('Cuidados com as Pontas')">
-            <div class="numero">04</div>
-            <h3>✂️ Cuidados com as Pontas</h3>
-            <p>Descubra como manter as pontas bonitas.</p>
-        </div>
-
-        <div class="topico" onclick="abrirPagina('Rotina de Cuidados')">
-            <div class="numero">05</div>
-            <h3>🌸 Rotina de Cuidados</h3>
-            <p>Monte uma rotina simples para o seu cabelo.</p>
-        </div>
-
-        <div class="topico" onclick="abrirPagina('Lembre-se')">
-            <div class="numero">06</div>
-            <h3>💗 Lembre-se</h3>
-            <p>Cuide dos seus fios e ame o seu cabelo.</p>
-        </div>
-
-    </section>
-
-    <footer>
-
-        <strong>Entre Fios ♡</strong>
-
-        <p>
-            Cuide do seu cabelo com carinho.
-        </p>
-
-    </footer>
 
     <script>
 
-        function abrirPagina(topico) {
+        function abrirHidratacao() {
 
-            alert(
-                "Você clicou em: " + topico +
-                "\n\nEm breve você encontrará todas as dicas sobre esse assunto! 💗"
-            );
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("hidratacao").style.display = "block";
+
+            window.scrollTo(0, 0);
+
+        }
+
+
+        function voltarInicio() {
+
+            document.getElementById("hidratacao").style.display = "none";
+
+            document.getElementById("inicio").style.display = "block";
+
+            window.scrollTo(0, 0);
+
+        }
+
+
+        function emBreve() {
+
+            alert("Esse conteúdo estará disponível em breve! 💗");
+
+        }
+
+
+        function curtir() {
+
+            alert("Você curtiu essa publicação! ❤️");
+
+        }
+
+
+        function comentar() {
+
+            let comentario = prompt("Escreva seu comentário:");
+
+            if (comentario) {
+
+                alert("Comentário enviado! 💬");
+
+            }
+
+        }
+
+
+        function favoritar() {
+
+            alert("Adicionado aos favoritos! ⭐");
+
+        }
+
+
+        function compartilhar() {
+
+            alert("Você pode compartilhar o link do blog! ↗️");
 
         }
 
