@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Entre Fios</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5f8;
+            color: #4b3940;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d98da7, #f3c5d3);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 55px;
+            margin: 10px;
+        }
+
+        header p {
+            font-size: 19px;
+        }
+
+        .perfil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+        }
+
+        .introducao {
+            text-align: center;
+            max-width: 800px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .introducao h2 {
+            color: #b76582;
+            font-size: 30px;
+        }
+
+        .topicos {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .topico {
+            background: white;
+            border: 2px solid #f0c6d3;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .topico:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px #0002;
+        }
+
+        .topico .numero {
+            background: #d98da7;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            font-weight: bold;
+        }
+
+        .topico h3 {
+            color: #b76582;
+            font-size: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: #f1c4d2;
+        }
+
+        @media (max-width: 700px) {
+            .topicos {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <!-- A foto será colocada aqui depois -->
+
+        <h1>Entre Fios ♡</h1>
+
+        <p>
+            Dicas simples para cuidar do seu cabelo
+            e deixar seus fios ainda mais bonitos.
+        </p>
+
+    </header>
+
+    <section class="introducao">
+
+        <h2>Bem-vinda ao Entre Fios! 💗</h2>
+
+        <p>
+            Aqui você encontra dicas, cuidados e informações
+            para manter o cabelo bonito, saudável e bem cuidado.
+        </p>
+
+    </section>
+
+    <section class="topicos">
+
+        <div class="topico" onclick="abrirPagina('Hidratação')">
+            <div class="numero">01</div>
+            <h3>💧 Hidratação</h3>
+            <p>Aprenda como hidratar e cuidar dos seus fios.</p>
+        </div>
+
+        <div class="topico" onclick="abrirPagina('Cuidados com a Chapinha')">
+            <div class="numero">02</div>
+            <h3>🔥 Cuidados com a Chapinha</h3>
+            <p>Veja como proteger o cabelo do calor.</p>
+        </div>
+
+        <div class="topico" onclick="abrirPagina('Como Lavar o Cabelo')">
+            <div class="numero">03</div>
+            <h3>🫧 Como Lavar o Cabelo</h3>
+            <p>Confira dicas para lavar os fios corretamente.</p>
+        </div>
+
+        <div class="topico" onclick="abrirPagina('Cuidados com as Pontas')">
+            <div class="numero">04</div>
+            <h3>✂️ Cuidados com as Pontas</h3>
+            <p>Descubra como manter as pontas bonitas.</p>
+        </div>
+
+        <div class="topico" onclick="abrirPagina('Rotina de Cuidados')">
+            <div class="numero">05</div>
+            <h3>🌸 Rotina de Cuidados</h3>
+            <p>Monte uma rotina simples para o seu cabelo.</p>
+        </div>
+
+        <div class="topico" onclick="abrirPagina('Lembre-se')">
+            <div class="numero">06</div>
+            <h3>💗 Lembre-se</h3>
+            <p>Cuide dos seus fios e ame o seu cabelo.</p>
+        </div>
+
+    </section>
+
+    <footer>
+
+        <strong>Entre Fios ♡</strong>
+
+        <p>
+            Cuide do seu cabelo com carinho.
+        </p>
+
+    </footer>
+
+    <script>
+
+        function abrirPagina(topico) {
+
+            alert(
+                "Você clicou em: " + topico +
+                "\n\nEm breve você encontrará todas as dicas sobre esse assunto! 💗"
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
