@@ -1,1 +1,1380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entre Fios ♡</title>
 
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fff8fb;
+    color:#4b3942;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg,#e99ab8,#d979a0);
+    color:white;
+    padding:30px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:38px;
+    margin-bottom:5px;
+}
+
+header p{
+    font-size:16px;
+}
+
+nav{
+    background:white;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:14px;
+    box-shadow:0 2px 10px #00000012;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+nav button{
+    border:0;
+    background:#f9e2eb;
+    color:#8f4665;
+    padding:9px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+nav button:hover{
+    background:#edb1c7;
+}
+
+.container{
+    width:92%;
+    max-width:1050px;
+    margin:30px auto;
+}
+
+.hero{
+    background:white;
+    border-radius:25px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 5px 20px #00000010;
+    margin-bottom:30px;
+}
+
+.hero h2{
+    color:#bd5d83;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+}
+
+.profile{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:20px auto;
+    display:block;
+    border:5px solid #f3c4d5;
+}
+
+.section-title{
+    color:#a94e72;
+    text-align:center;
+    margin:35px 0 20px;
+    font-size:28px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:white;
+    padding:22px;
+    border-radius:20px;
+    box-shadow:0 4px 15px #0000000d;
+}
+
+.tip-card{
+    cursor:pointer;
+    transition:.2s;
+}
+
+.tip-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 7px 20px #00000015;
+}
+
+.tip-card h3{
+    color:#b9577c;
+    margin-bottom:7px;
+}
+
+.tip-icon{
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+.product-card{
+    overflow:hidden;
+    padding:0;
+}
+
+.product-img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    background:#f8e4ec;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.product-info h3{
+    color:#a84f72;
+}
+
+button{
+    font-family:inherit;
+}
+
+.action-btn{
+    border:0;
+    border-radius:18px;
+    padding:9px 13px;
+    margin:5px 3px;
+    background:#f8dce7;
+    color:#91445f;
+    cursor:pointer;
+}
+
+.action-btn:hover{
+    background:#edb7ca;
+}
+
+.action-btn.active{
+    background:#d96f98;
+    color:white;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:100;
+    inset:0;
+    background:#00000075;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    width:100%;
+    max-width:650px;
+    max-height:90vh;
+    overflow:auto;
+    border-radius:25px;
+    padding:30px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:12px;
+    border:0;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+    color:#9d5470;
+}
+
+.modal-content h2{
+    color:#b65379;
+    margin-bottom:15px;
+}
+
+.modal-content h3{
+    color:#a95275;
+    margin-top:18px;
+    margin-bottom:5px;
+}
+
+.modal-content p{
+    margin-bottom:12px;
+}
+
+.comment-box{
+    margin-top:20px;
+    border-top:1px solid #f0d5df;
+    padding-top:20px;
+}
+
+.comment-box textarea{
+    width:100%;
+    min-height:90px;
+    border:1px solid #e7bfd0;
+    border-radius:15px;
+    padding:12px;
+    resize:vertical;
+    outline:none;
+}
+
+.comment{
+    background:#fff3f7;
+    padding:12px;
+    border-radius:12px;
+    margin-top:10px;
+}
+
+.comment strong{
+    color:#a34c70;
+}
+
+.selection{
+    background:#fff;
+    padding:25px;
+    border-radius:22px;
+    box-shadow:0 4px 15px #0000000d;
+    margin-top:30px;
+}
+
+.empty{
+    text-align:center;
+    color:#977681;
+    padding:20px;
+}
+
+.routine-box{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 4px 15px #0000000d;
+}
+
+.routine-days{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:12px;
+    margin-top:20px;
+}
+
+.day{
+    background:#fff3f7;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+}
+
+.day strong{
+    color:#a64d70;
+}
+
+select{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:1px solid #e4bdcc;
+    border-radius:12px;
+    background:white;
+}
+
+footer{
+    margin-top:50px;
+    background:#d979a0;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.status{
+    font-size:13px;
+    color:#9c5570;
+    margin-top:5px;
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:30px;
+    }
+
+    .hero{
+        padding:25px 18px;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+
+    nav{
+        gap:6px;
+    }
+
+    nav button{
+        padding:8px 11px;
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Entre Fios ♡</h1>
+    <p>Dicas simples para cuidar, tratar e deixar seus cabelos ainda mais lindos.</p>
+</header>
+
+<nav>
+    <button onclick="irPara('inicio')">Início</button>
+    <button onclick="irPara('dicas')">Dicas</button>
+    <button onclick="irPara('produtos')">Produtos</button>
+    <button onclick="irPara('rotina')">Minha rotina</button>
+    <button onclick="irPara('selecao')">Minha seleção ⭐</button>
+</nav>
+
+<main class="container">
+
+<section id="inicio" class="hero">
+
+    <!--
+    DEPOIS podemos colocar sua foto aqui.
+    Para isso, substituiremos o endereço abaixo pela foto.
+    -->
+    <img
+        class="profile"
+        src="https://placehold.co/300x300/f4c4d5/ffffff?text=Sua+foto"
+        alt="Foto da criadora do Entre Fios">
+
+    <h2>Bem-vinda ao Entre Fios ♡</h2>
+
+    <p>
+        Aqui você encontra dicas, cuidados, ideias de rotina e produtos
+        que podem ajudar a cuidar melhor dos seus cabelos.
+    </p>
+
+    <div class="selection" style="margin-top:25px;">
+        <h3 style="color:#ae5376;">✨ Seu cabelo merece carinho!</h3>
+        <p>
+            Escolha uma categoria abaixo, descubra novas dicas e monte
+            uma rotina que combine com as necessidades do seu cabelo.
+        </p>
+    </div>
+
+</section>
+
+
+<section id="dicas">
+
+<h2 class="section-title">✨ Dicas para cuidar dos fios</h2>
+
+<div class="cards">
+
+<div class="card tip-card" onclick="abrirDica('lavagem')">
+    <div class="tip-icon">🫧</div>
+    <h3>Lavagem</h3>
+    <p>Aprenda a cuidar dos fios durante a lavagem.</p>
+</div>
+
+<div class="card tip-card" onclick="abrirDica('corte')">
+    <div class="tip-icon">✂️</div>
+    <h3>Corte</h3>
+    <p>Cuidados e dicas para manter o corte bonito.</p>
+</div>
+
+<div class="card tip-card" onclick="abrirDica('noite')">
+    <div class="tip-icon">🌙</div>
+    <h3>Cuidar durante a noite</h3>
+    <p>Pequenos cuidados que fazem diferença enquanto você dorme.</p>
+</div>
+
+<div class="card tip-card" onclick="abrirDica('tratamentos')">
+    <div class="tip-icon">🧴</div>
+    <h3>Não exagere nos tratamentos</h3>
+    <p>Entenda por que equilíbrio também é cuidado.</p>
+</div>
+
+<div class="card tip-card" onclick="abrirDica('hidratacao')">
+    <div class="tip-icon">💧</div>
+    <h3>Mantenha a hidratação</h3>
+    <p>Veja por que a hidratação é tão importante.</p>
+</div>
+
+<div class="card tip-card" onclick="abrirDica('calor')">
+    <div class="tip-icon">🔥</div>
+    <h3>Chapinha e secador</h3>
+    <p>Cuidados para quem usa fontes de calor no dia a dia.</p>
+</div>
+
+</div>
+</section>
+
+
+<section id="produtos">
+
+<h2 class="section-title">🛍️ Produtos</h2>
+
+<p style="text-align:center;margin-bottom:20px;">
+    Encontre produtos que podem fazer parte da sua rotina.
+</p>
+
+<div class="cards">
+
+<div class="card product-card">
+
+<img class="product-img"
+src="https://placehold.co/600x400/f7dce6/9d526f?text=Hidrata%C3%A7%C3%A3o"
+alt="Produto de hidratação">
+
+<div class="product-info">
+
+<h3>Máscara de Hidratação</h3>
+
+<p>
+Uma opção para ajudar a devolver maciez e sensação de cabelo hidratado.
+</p>
+
+<button class="action-btn" onclick="favoritarProduto('Máscara de Hidratação',this)">
+⭐ Favoritar
+</button>
+
+<button class="action-btn" onclick="compartilhar('Máscara de Hidratação')">
+📤 Compartilhar
+</button>
+
+<p class="status" id="status-Máscara de Hidratação"></p>
+
+</div>
+</div>
+
+
+<div class="card product-card">
+
+<img class="product-img"
+src="https://placehold.co/600x400/f7dce6/9d526f?text=Nutri%C3%A7%C3%A3o"
+alt="Produto de nutrição">
+
+<div class="product-info">
+
+<h3>Máscara de Nutrição</h3>
+
+<p>
+Pode ajudar nos cuidados dos fios que precisam de mais nutrição e maciez.
+</p>
+
+<button class="action-btn" onclick="favoritarProduto('Máscara de Nutrição',this)">
+⭐ Favoritar
+</button>
+
+<button class="action-btn" onclick="compartilhar('Máscara de Nutrição')">
+📤 Compartilhar
+</button>
+
+<p class="status" id="status-Máscara de Nutrição"></p>
+
+</div>
+</div>
+
+
+<div class="card product-card">
+
+<img class="product-img"
+src="https://placehold.co/600x400/f7dce6/9d526f?text=Protetor+T%C3%A9rmico"
+alt="Protetor térmico">
+
+<div class="product-info">
+
+<h3>Protetor Térmico</h3>
+
+<p>
+Um aliado importante para quem usa secador, chapinha ou outras fontes de calor.
+</p>
+
+<button class="action-btn" onclick="favoritarProduto('Protetor Térmico',this)">
+⭐ Favoritar
+</button>
+
+<button class="action-btn" onclick="compartilhar('Protetor Térmico')">
+📤 Compartilhar
+</button>
+
+<p class="status" id="status-Protetor Térmico"></p>
+
+</div>
+</div>
+
+
+<div class="card product-card">
+
+<img class="product-img"
+src="https://placehold.co/600x400/f7dce6/9d526f?text=Reconstru%C3%A7%C3%A3o"
+alt="Produto de reconstrução">
+
+<div class="product-info">
+
+<h3>Máscara de Reconstrução</h3>
+
+<p>
+Uma opção para momentos em que o cabelo precisa de cuidados reconstrutores.
+</p>
+
+<button class="action-btn" onclick="favoritarProduto('Máscara de Reconstrução',this)">
+⭐ Favoritar
+</button>
+
+<button class="action-btn" onclick="compartilhar('Máscara de Reconstrução')">
+📤 Compartilhar
+</button>
+
+<p class="status" id="status-Máscara de Reconstrução"></p>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+<section id="rotina">
+
+<h2 class="section-title">🗓️ Monte sua rotina</h2>
+
+<div class="routine-box">
+
+<p>
+Escolha o cuidado que você quer fazer em cada dia. A ideia é montar
+uma rotina simples e adaptável às necessidades do seu cabelo.
+</p>
+
+<div class="routine-days">
+
+<div class="day">
+<strong>Segunda</strong>
+<select id="segunda">
+<option value="">Escolha</option>
+<option>Hidratação</option>
+<option>Nutrição</option>
+<option>Reconstrução</option>
+<option>Descanso</option>
+</select>
+</div>
+
+<div class="day">
+<strong>Terça</strong>
+<select id="terca">
+<option value="">Escolha</option>
+<option>Hidratação</option>
+<option>Nutrição</option>
+<option>Reconstrução</option>
+<option>Descanso</option>
+</select>
+</div>
+
+<div class="day">
+<strong>Quarta</strong>
+<select id="quarta">
+<option value="">Escolha</option>
+<option>Hidratação</option>
+<option>Nutrição</option>
+<option>Reconstrução</option>
+<option>Descanso</option>
+</select>
+</div>
+
+<div class="day">
+<strong>Quinta</strong>
+<select id="quinta">
+<option value="">Escolha</option>
+<option>Hidratação</option>
+<option>Nutrição</option>
+<option>Reconstrução</option>
+<option>Descanso</option>
+</select>
+</div>
+
+<div class="day">
+<strong>Sexta</strong>
+<select id="sexta">
+<option value="">Escolha</option>
+<option>Hidratação</option>
+<option>Nutrição</option>
+<option>Reconstrução</option>
+<option>Descanso</option>
+</select>
+</div>
+
+<div class="day">
+<strong>Sábado</strong>
+<select id="sabado">
+<option value="">Escolha</option>
+<option>Hidratação</option>
+<option>Nutrição</option>
+<option>Reconstrução</option>
+<option>Descanso</option>
+</select>
+</div>
+
+<div class="day">
+<strong>Domingo</strong>
+<select id="domingo">
+<option value="">Escolha</option>
+<option>Hidratação</option>
+<option>Nutrição</option>
+<option>Reconstrução</option>
+<option>Descanso</option>
+</select>
+</div>
+
+</div>
+
+<button class="action-btn" style="margin-top:20px;"
+onclick="salvarRotina()">
+💗 Salvar minha rotina
+</button>
+
+<div id="rotinaSalva"></div>
+
+</div>
+</section>
+
+
+<section id="selecao">
+
+<h2 class="section-title">⭐ Minha seleção</h2>
+
+<div class="selection">
+
+<p>
+Aqui ficam os produtos que você favoritou.
+</p>
+
+<div id="listaFavoritos" class="empty">
+Você ainda não adicionou nenhum produto aos favoritos.
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- MODAL DAS DICAS -->
+
+<div class="modal" id="modalDica">
+
+<div class="modal-content">
+
+<button class="close" onclick="fecharDica()">×</button>
+
+<div id="conteudoDica"></div>
+
+<div class="comment-box">
+
+<h3>💗 Interaja com essa dica</h3>
+
+<button class="action-btn" id="likeBtn" onclick="curtirDica()">
+♡ Curtir
+</button>
+
+<button class="action-btn" onclick="compartilharDica()">
+📤 Compartilhar
+</button>
+
+<button class="action-btn" id="favoriteTipBtn" onclick="favoritarDica()">
+⭐ Favoritar
+</button>
+
+<p id="interactionStatus" class="status"></p>
+
+<h3>💬 Comentários</h3>
+
+<textarea
+id="commentInput"
+placeholder="Escreva seu comentário..."></textarea>
+
+<br>
+
+<button class="action-btn" onclick="adicionarComentario()">
+💬 Comentar
+</button>
+
+<div id="comments"></div>
+
+</div>
+
+</div>
+</div>
+
+
+<footer>
+    <h3>Entre Fios ♡</h3>
+    <p>Cuide dos seus fios com carinho.</p>
+</footer>
+
+
+<script>
+
+const dicas = {
+
+lavagem: {
+titulo:"🫧 Lavagem: cuide dos fios desde o banho",
+texto:`
+<p>
+A lavagem é uma das etapas mais importantes da rotina capilar.
+Não é apenas colocar shampoo e enxaguar: a forma como você lava
+o cabelo também pode influenciar na aparência e na sensação dos fios.
+</p>
+
+<h3>Como cuidar?</h3>
+
+<p>
+Aplique o shampoo principalmente no couro cabeludo e massageie
+delicadamente com as pontas dos dedos. Evite esfregar o comprimento
+com força, porque ele pode ser mais sensível.
+</p>
+
+<p>
+Depois, enxágue bem. O condicionador pode ser aplicado no comprimento
+e nas pontas, evitando a raiz quando isso pesar no seu cabelo.
+</p>
+
+<h3>💗 Lembre-se</h3>
+
+<p>
+Cada cabelo possui necessidades diferentes. Observe como seus fios
+reagem e adapte sua rotina.
+</p>
+`
+},
+
+corte: {
+titulo:"✂️ Corte: mantenha os fios bonitos",
+texto:`
+<p>
+Manter o corte em dia pode ajudar o cabelo a ficar com uma aparência
+mais organizada e bonita.
+</p>
+
+<h3>Por que cortar?</h3>
+
+<p>
+As pontas podem ficar mais ressecadas, frágeis e com aparência
+desgastada com o tempo. O corte ajuda a renovar o formato do cabelo
+e retirar pontas que estejam incomodando.
+</p>
+
+<p>
+Não existe uma regra única para todo mundo. A frequência pode variar
+de acordo com o comprimento, o corte e os objetivos de cada pessoa.
+</p>
+`
+},
+
+noite: {
+titulo:"🌙 Cuidados durante a noite",
+texto:`
+<p>
+Enquanto dormimos, o cabelo pode sofrer atrito com o travesseiro.
+Por isso, alguns cuidados simples podem ajudar.
+</p>
+
+<h3>✨ Antes de dormir</h3>
+
+<p>
+Evite dormir com o cabelo molhado. Se quiser prender os fios,
+prefira penteados frouxos que não criem muita tensão.
+</p>
+
+<p>
+Uma fronha com tecido mais suave também pode ajudar a diminuir
+o atrito durante a noite.
+</p>
+
+<h3>💗 O principal</h3>
+
+<p>
+Não precisa criar uma rotina complicada. Pequenas mudanças já podem
+deixar os cuidados mais confortáveis.
+</p>
+`
+},
+
+tratamentos: {
+titulo:"🧴 Não exagere nos tratamentos",
+texto:`
+<p>
+Mais tratamento nem sempre significa mais resultado.
+O cabelo também precisa de equilíbrio.
+</p>
+
+<h3>⚖️ Observe os sinais</h3>
+
+<p>
+Fazer tratamentos com muita frequência, sem necessidade, pode deixar
+os fios pesados ou alterar a sensação deles.
+</p>
+
+<p>
+O ideal é observar seu cabelo e entender o que ele está pedindo.
+Uma rotina equilibrada pode alternar diferentes tipos de cuidado.
+</p>
+
+<h3>💗 Menos também pode ser mais</h3>
+
+<p>
+Não existe necessidade de fazer tudo ao mesmo tempo. Escolha os
+cuidados que realmente fazem sentido para seus fios.
+</p>
+`
+},
+
+hidratacao: {
+titulo:"💧 Mantenha a hidratação",
+texto:`
+<p>
+A hidratação é um cuidado importante para ajudar os fios a manterem
+uma aparência mais macia, leve e saudável.
+</p>
+
+<h3>💦 Quando hidratar?</h3>
+
+<p>
+A frequência depende do seu cabelo. Fios que apresentam sensação
+de ressecamento podem se beneficiar de uma rotina de hidratação
+adequada.
+</p>
+
+<p>
+A hidratação pode fazer parte do cronograma de cuidados, mas sempre
+respeitando a resposta do cabelo.
+</p>
+
+<h3>✨ Dica</h3>
+
+<p>
+Observe textura, brilho, maciez e facilidade para desembaraçar.
+Esses sinais podem ajudar você a entender o que seu cabelo precisa.
+</p>
+`
+},
+
+calor: {
+titulo:"🔥 Chapinha e secador",
+texto:`
+<p>
+Se você gosta de usar secador, chapinha ou outras fontes de calor,
+não precisa deixar de usar automaticamente. O mais importante é
+aprender a cuidar dos fios para reduzir danos desnecessários.
+</p>
+
+<h3>🛡️ Proteção térmica</h3>
+
+<p>
+O protetor térmico é um dos principais aliados para quem utiliza
+fontes de calor. Ele deve ser aplicado antes da exposição ao calor,
+seguindo as instruções do produto.
+</p>
+
+<h3>Como aplicar?</h3>
+
+<p>
+Distribua o produto de maneira uniforme pelo comprimento e pelas
+pontas. Evite exagerar na quantidade para não deixar o cabelo pesado.
+Depois, aguarde o produto agir conforme a orientação da embalagem.
+</p>
+
+<h3>🔥 E a chapinha?</h3>
+
+<p>
+Se você usa chapinha diariamente ou com bastante frequência, alguns
+cuidados são especialmente importantes: utilize proteção térmica,
+evite passar a ferramenta várias vezes na mesma mecha e procure não
+usar temperaturas desnecessariamente altas.
+</p>
+
+<h3>💗 E o secador?</h3>
+
+<p>
+Ao usar o secador, mantenha uma distância adequada dos fios e evite
+deixar o ar muito quente parado no mesmo lugar por muito tempo.
+</p>
+
+<p>
+A ideia não é dizer que você não pode usar fonte de calor.
+É ajudar você a usar de uma forma mais cuidadosa quando ela já faz
+parte da sua rotina.
+</p>
+`
+}
+
+};
+
+
+let dicaAtual="";
+let curtidas={};
+let favoritosDicas=[];
+let comentarios={};
+
+
+function irPara(id){
+
+document.getElementById(id).scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function abrirDica(id){
+
+dicaAtual=id;
+
+document.getElementById("conteudoDica").innerHTML=
+dicas[id].texto;
+
+document.querySelector("#conteudoDica").insertAdjacentHTML(
+"afterbegin",
+"<h2>"+dicas[id].titulo+"</h2>"
+);
+
+document.getElementById("modalDica").style.display="flex";
+
+atualizarInteracoes();
+
+}
+
+
+function fecharDica(){
+
+document.getElementById("modalDica").style.display="none";
+
+}
+
+
+function curtirDica(){
+
+curtidas[dicaAtual]=!curtidas[dicaAtual];
+
+localStorage.setItem(
+"entreFiosCurtidas",
+JSON.stringify(curtidas)
+);
+
+atualizarInteracoes();
+
+}
+
+
+function atualizarInteracoes(){
+
+const btn=document.getElementById("likeBtn");
+const status=document.getElementById("interactionStatus");
+
+if(curtidas[dicaAtual]){
+
+btn.innerHTML="♥ Curtido";
+btn.classList.add("active");
+
+}else{
+
+btn.innerHTML="♡ Curtir";
+btn.classList.remove("active");
+
+}
+
+if(favoritosDicas.includes(dicaAtual)){
+
+status.innerHTML="⭐ Esta dica está nos seus favoritos.";
+
+}else if(curtidas[dicaAtual]){
+
+status.innerHTML="♥ Você curtiu esta dica.";
+
+}else{
+
+status.innerHTML="";
+
+}
+
+mostrarComentarios();
+
+}
+
+
+function favoritarDica(){
+
+if(favoritosDicas.includes(dicaAtual)){
+
+favoritosDicas=
+favoritosDicas.filter(item=>item!==dicaAtual);
+
+}else{
+
+favoritosDicas.push(dicaAtual);
+
+}
+
+localStorage.setItem(
+"entreFiosFavoritosDicas",
+JSON.stringify(favoritosDicas)
+);
+
+atualizarInteracoes();
+
+}
+
+
+function adicionarComentario(){
+
+const input=document.getElementById("commentInput");
+
+const texto=input.value.trim();
+
+if(!texto){
+
+alert("Escreva um comentário primeiro. 💗");
+
+return;
+
+}
+
+if(!comentarios[dicaAtual]){
+
+comentarios[dicaAtual]=[];
+
+}
+
+comentarios[dicaAtual].push({
+
+texto:texto,
+data:new Date().toLocaleString("pt-BR")
+
+});
+
+localStorage.setItem(
+"entreFiosComentarios",
+JSON.stringify(comentarios)
+);
+
+input.value="";
+
+mostrarComentarios();
+
+}
+
+
+function mostrarComentarios(){
+
+const area=document.getElementById("comments");
+
+area.innerHTML="";
+
+const lista=comentarios[dicaAtual] || [];
+
+if(lista.length===0){
+
+area.innerHTML=
+"<p class='empty'>Ainda não há comentários. Seja a primeira pessoa a comentar! 💗</p>";
+
+return;
+
+}
+
+lista.forEach(function(item){
+
+const div=document.createElement("div");
+
+div.className="comment";
+
+div.innerHTML=
+"<strong>Você</strong><br>"+
+item.texto+
+"<div class='status'>"+item.data+"</div>";
+
+area.appendChild(div);
+
+});
+
+}
+
+
+function compartilharDica(){
+
+const titulo=dicas[dicaAtual].titulo;
+
+compartilhar(titulo);
+
+document.getElementById("interactionStatus").innerHTML=
+"📤 Você compartilhou esta dica!";
+
+}
+
+
+function compartilhar(nome){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Entre Fios ♡",
+text:"Olha essa dica/produto do Entre Fios: "+nome
+
+}).catch(function(){});
+
+}else{
+
+navigator.clipboard.writeText(
+"Entre Fios ♡ - "+nome
+);
+
+alert("📤 Link/texto copiado para compartilhar!");
+
+}
+
+}
+
+
+let favoritosProdutos=[];
+
+
+function favoritarProduto(nome,botao){
+
+if(favoritosProdutos.includes(nome)){
+
+favoritosProdutos=
+favoritosProdutos.filter(item=>item!==nome);
+
+botao.classList.remove("active");
+
+}else{
+
+favoritosProdutos.push(nome);
+
+botao.classList.add("active");
+
+}
+
+localStorage.setItem(
+"entreFiosProdutos",
+JSON.stringify(favoritosProdutos)
+);
+
+mostrarFavoritos();
+
+const status=document.getElementById(
+"status-"+nome
+);
+
+if(status){
+
+if(favoritosProdutos.includes(nome)){
+
+status.innerHTML="⭐ Adicionado à Minha seleção!";
+
+}else{
+
+status.innerHTML="Produto removido da sua seleção.";
+
+}
+
+}
+
+}
+
+
+function mostrarFavoritos(){
+
+const area=document.getElementById("listaFavoritos");
+
+if(favoritosProdutos.length===0){
+
+area.innerHTML=
+"Você ainda não adicionou nenhum produto aos favoritos.";
+
+return;
+
+}
+
+area.innerHTML="";
+
+favoritosProdutos.forEach(function(produto){
+
+const div=document.createElement("div");
+
+div.className="comment";
+
+div.innerHTML=
+"⭐ <strong>"+produto+"</strong>"+
+"<br><button class='action-btn' onclick=\"removerFavorito('"+
+produto+
+"')\">Remover</button>";
+
+area.appendChild(div);
+
+});
+
+}
+
+
+function removerFavorito(nome){
+
+favoritosProdutos=
+favoritosProdutos.filter(item=>item!==nome);
+
+localStorage.setItem(
+"entreFiosProdutos",
+JSON.stringify(favoritosProdutos)
+);
+
+mostrarFavoritos();
+
+}
+
+
+function salvarRotina(){
+
+const dias=[
+"segunda",
+"terca",
+"quarta",
+"quinta",
+"sexta",
+"sabado",
+"domingo"
+];
+
+let rotina={};
+
+dias.forEach(function(dia){
+
+rotina[dia]=
+document.getElementById(dia).value;
+
+});
+
+localStorage.setItem(
+"entreFiosRotina",
+JSON.stringify(rotina)
+);
+
+document.getElementById("rotinaSalva").innerHTML=`
+
+<div class="selection" style="margin-top:20px;">
+
+<h3>💗 Sua rotina foi salva!</h3>
+
+<p>
+Agora você tem uma organização semanal dos seus cuidados.
+</p>
+
+</div>
+
+`;
+
+}
+
+
+function carregarRotina(){
+
+const dados=
+JSON.parse(
+localStorage.getItem("entreFiosRotina")
+);
+
+if(!dados){
+
+return;
+
+}
+
+Object.keys(dados).forEach(function(dia){
+
+const elemento=
+document.getElementById(dia);
+
+if(elemento){
+
+elemento.value=dados[dia];
+
+}
+
+});
+
+}
+
+
+function carregarDados(){
+
+curtidas=
+JSON.parse(
+localStorage.getItem("entreFiosCurtidas")
+) || {};
+
+favoritosDicas=
+JSON.parse(
+localStorage.getItem("entreFiosFavoritosDicas")
+) || [];
+
+comentarios=
+JSON.parse(
+localStorage.getItem("entreFiosComentarios")
+) || {};
+
+favoritosProdutos=
+JSON.parse(
+localStorage.getItem("entreFiosProdutos")
+) || [];
+
+carregarRotina();
+
+mostrarFavoritos();
+
+}
+
+
+window.onclick=function(event){
+
+const modal=
+document.getElementById("modalDica");
+
+if(event.target===modal){
+
+fecharDica();
+
+}
+
+};
+
+
+carregarDados();
+
+</script>
+
+</body>
+</html>
