@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Entre Fios ♡</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#fff8fb;
+  color:#4b3940;
+}
+
+header{
+  background:linear-gradient(135deg,#d98fa8,#b87591);
+  color:white;
+  text-align:center;
+  padding:55px 20px;
+}
+
+header h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+header p{
+  font-size:17px;
+}
+
+nav{
+  background:white;
+  padding:15px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 10px #00000012;
+}
+
+nav button{
+  border:none;
+  background:#f6dce6;
+  color:#75465a;
+  padding:10px 16px;
+  margin:5px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+nav button:hover{
+  background:#e8b8c9;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:45px 20px;
+}
+
+.intro{
+  text-align:center;
+}
+
+.intro h2{
+  color:#b76582;
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.intro p{
+  line-height:1.7;
+  max-width:750px;
+  margin:auto;
+}
+
+.titulo{
+  text-align:center;
+  color:#b76582;
+  margin-bottom:30px;
+  font-size:28px;
+}
+
+.filtros{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.filtros button{
+  border:1px solid #e2b5c5;
+  background:white;
+  color:#8a5269;
+  padding:9px 15px;
+  border-radius:18px;
+  margin:4px;
+  cursor:pointer;
+}
+
+.produtos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:white;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 5px 20px #b7658218;
+  border:1px solid #f0dbe3;
+  transition:.3s;
+  text-align:center;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px #b7658230;
+}
+
+.card img{
+  width:120px;
+  height:120px;
+  object-fit:contain;
+  border-radius:18px;
+  margin-bottom:12px;
+  background:#fff4f7;
+}
+
+.card h3{
+  color:#75465a;
+  margin-bottom:8px;
+  font-size:18px;
+}
+
+.marca{
+  color:#b76582;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.5;
+  margin:10px 0;
+  color:#6b5960;
+}
+
+.card button{
+  border:none;
+  background:#c77e98;
+  color:white;
+  padding:9px 15px;
+  border-radius:18px;
+  cursor:pointer;
+}
+
+.card button:hover{
+  background:#a9607b;
+}
+
+.♡{
+  background:#f7e3ea !important;
+  color:#a65373 !important;
+  margin-left:5px;
+}
+
+.carrinho{
+  background:#fff;
+  border-radius:22px;
+  padding:25px;
+  margin-top:35px;
+  box-shadow:0 5px 20px #00000010;
+}
+
+.carrinho h3{
+  color:#b76582;
+  margin-bottom:15px;
+}
+
+#listaCarrinho{
+  list-style:none;
+}
+
+#listaCarrinho li{
+  padding:9px;
+  border-bottom:1px solid #f0dbe3;
+}
+
+.dica{
+  background:#f9e7ee;
+  border-radius:25px;
+  padding:30px;
+  margin-top:20px;
+  text-align:center;
+}
+
+.dica h3{
+  color:#a65373;
+  margin-bottom:10px;
+}
+
+footer{
+  background:#b87591;
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:40px;
+}
+
+.escondido{
+  display:none;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:32px;
+  }
+
+  section{
+    padding:30px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Entre Fios ♡</h1>
+  <p>Dicas simples para cuidar, tratar e deixar seus cabelos ainda mais lindos.</p>
+</header>
+
+<nav>
+  <button onclick="mostrar('inicio')">Início</button>
+  <button onclick="mostrar('produtos')">Produtos ♡</button>
+  <button onclick="mostrar('dicas')">Dicas</button>
+  <button onclick="mostrar('favoritos')">Favoritos ♡</button>
+  <button onclick="mostrar('carrinho')">Minha seleção 🛍️</button>
+</nav>
+
+<section id="inicio">
+  <div class="intro">
+    <h2>Bem-vinda ao Entre Fios ♡</h2>
+
+    <p>
+      Aqui você encontra dicas, cuidados e indicações de produtos
+      para montar uma rotina capilar do seu jeitinho.
+    </p>
+
+    <div class="dica">
+      <h3>✨ Seu cabelo merece carinho!</h3>
+      <p>
+        Escolha uma categoria abaixo e descubra produtos que podem
+        fazer parte da sua rotina.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="produtos" class="escondido">
+
+  <h2 class="titulo">♡ Indicações de produtos</h2>
+
+  <div class="filtros">
+    <button onclick="filtrar('todos')">Todos</button>
+    <button onclick="filtrar('elseve')">Elseve</button>
+    <button onclick="filtrar('wella')">Wella</button>
+    <button onclick="filtrar('truss')">Truss</button>
+    <button onclick="filtrar('eudora')">Eudora</button>
+  </div>
+
+  <div class="produtos">
+
+    <div class="card produto elseve">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=Elseve">
+      <div class="marca">L'Oréal Paris Elseve</div>
+      <h3>Reparação Total 5</h3>
+      <p>Shampoo + condicionador para uma rotina de reparação.</p>
+      <button onclick="adicionar('Elseve Reparação Total 5')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Elseve Reparação Total 5')">♡</button>
+    </div>
+
+    <div class="card produto elseve">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=Elseve">
+      <div class="marca">L'Oréal Paris Elseve</div>
+      <h3>Máscara Reparação Total 5</h3>
+      <p>Uma opção para cuidados de cabelos danificados.</p>
+      <button onclick="adicionar('Máscara Elseve Reparação Total 5')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Máscara Elseve Reparação Total 5')">♡</button>
+    </div>
+
+    <div class="card produto wella">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=Wella">
+      <div class="marca">Wella</div>
+      <h3>Kit Shampoo + Condicionador</h3>
+      <p>Uma dupla para complementar a rotina de cuidados.</p>
+      <button onclick="adicionar('Kit Wella Shampoo + Condicionador')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Kit Wella Shampoo + Condicionador')">♡</button>
+    </div>
+
+    <div class="card produto wella">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=Wella">
+      <div class="marca">Wella</div>
+      <h3>Máscara Wella</h3>
+      <p>Tratamento para deixar os fios mais macios e cuidados.</p>
+      <button onclick="adicionar('Máscara Wella')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Máscara Wella')">♡</button>
+    </div>
+
+    <div class="card produto truss">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=TRUSS">
+      <div class="marca">TRUSS</div>
+      <h3>Uso Obrigatório</h3>
+      <p>Reconstrução e proteção térmica para a rotina capilar.</p>
+      <button onclick="adicionar('TRUSS Uso Obrigatório')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('TRUSS Uso Obrigatório')">♡</button>
+    </div>
+
+    <div class="card produto truss">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=TRUSS">
+      <div class="marca">TRUSS</div>
+      <h3>Máscara Uso Obrigatório</h3>
+      <p>Tratamento com foco em reconstrução e maciez.</p>
+      <button onclick="adicionar('Máscara TRUSS Uso Obrigatório')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Máscara TRUSS Uso Obrigatório')">♡</button>
+    </div>
+
+    <div class="card produto eudora">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=Eudora">
+      <div class="marca">Eudora Siàge</div>
+      <h3>Máscara de Hidratação</h3>
+      <p>Uma opção para incluir hidratação na rotina.</p>
+      <button onclick="adicionar('Eudora Máscara de Hidratação')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Eudora Máscara de Hidratação')">♡</button>
+    </div>
+
+    <div class="card produto eudora">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=Eudora">
+      <div class="marca">Eudora Siàge</div>
+      <h3>Máscara de Reparação</h3>
+      <p>Tratamento para ajudar nos cuidados dos fios.</p>
+      <button onclick="adicionar('Eudora Máscara de Reparação')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Eudora Máscara de Reparação')">♡</button>
+    </div>
+
+    <div class="card produto eudora">
+      <img src="https://placehold.co/300x300/fff4f7/b76582?text=Eudora">
+      <div class="marca">Eudora Siàge</div>
+      <h3>Máscara de Nutrição</h3>
+      <p>Uma opção para cuidados nutritivos e cabelos ressecados.</p>
+      <button onclick="adicionar('Eudora Máscara de Nutrição')">Adicionar ♡</button>
+      <button class="♡" onclick="favoritar('Eudora Máscara de Nutrição')">♡</button>
+    </div>
+
+  </div>
+</section>
+
+<section id="dicas" class="escondido">
+
+  <h2 class="titulo">✨ Dicas para os fios</h2>
+
+  <div class="dica">
+    <h3>💧 Hidratação</h3>
+    <p>
+      Ajuda a devolver água aos fios, deixando o cabelo mais macio,
+      brilhoso e com aparência saudável.
+    </p>
+  </div>
+
+  <div class="dica">
+    <h3>🥑 Nutrição</h3>
+    <p>
+      Ajuda a repor nutrientes e lipídios, sendo interessante para
+      cabelos ressecados e sem brilho.
+    </p>
+  </div>
+
+  <div class="dica">
+    <h3>✨ Reconstrução</h3>
+    <p>
+      É uma etapa voltada para cabelos que precisam de cuidados
+      relacionados à resistência e danos.
+    </p>
+  </div>
+
+  <div class="dica">
+    <h3>🔥 Proteção térmica</h3>
+    <p>
+      Antes de usar secador, chapinha ou outras fontes de calor,
+      lembre-se de utilizar um produto com proteção térmica.
+    </p>
+  </div>
+
+</section>
+
+<section id="favoritos" class="escondido">
+
+  <h2 class="titulo">♡ Meus favoritos</h2>
+
+  <div class="carrinho">
+    <ul id="listaFavoritos">
+      <li>Nenhum favorito ainda ♡</li>
+    </ul>
+  </div>
+
+</section>
+
+<section id="carrinho" class="escondido">
+
+  <h2 class="titulo">🛍️ Minha seleção</h2>
+
+  <div class="carrinho">
+    <h3>Produtos selecionados:</h3>
+
+    <ul id="listaCarrinho">
+      <li>Nenhum produto selecionado ainda.</li>
+    </ul>
+  </div>
+
+</section>
+
+<footer>
+  <p>Entre Fios ♡</p>
+  <p>Um projeto escolar feito com carinho.</p>
+</footer>
+
+<script>
+
+let favoritos = [];
+let carrinho = [];
+
+function mostrar(id){
+
+  document.querySelectorAll("section").forEach(sec=>{
+    sec.classList.add("escondido");
+  });
+
+  document.getElementById(id).classList.remove("escondido");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function filtrar(marca){
+
+  document.querySelectorAll(".produto").forEach(card=>{
+
+    if(marca === "todos"){
+      card.style.display = "block";
+    }
+
+    else if(card.classList.contains(marca)){
+      card.style.display = "block";
+    }
+
+    else{
+      card.style.display = "none";
+    }
+
+  });
+
+}
+
+function adicionar(produto){
+
+  carrinho.push(produto);
+
+  atualizarCarrinho();
+
+  alert("♡ " + produto + " foi adicionado à sua seleção!");
+}
+
+function atualizarCarrinho(){
+
+  let lista = document.getElementById("listaCarrinho");
+
+  lista.innerHTML = "";
+
+  if(carrinho.length === 0){
+
+    lista.innerHTML =
+      "<li>Nenhum produto selecionado ainda.</li>";
+
+    return;
+  }
+
+  carrinho.forEach((produto,index)=>{
+
+    let item = document.createElement("li");
+
+    item.innerHTML =
+      produto +
+      " <button onclick=\"remover("+index+")\">×</button>";
+
+    lista.appendChild(item);
+
+  });
+
+}
+
+function remover(index){
+
+  carrinho.splice(index,1);
+
+  atualizarCarrinho();
+
+}
+
+function favoritar(produto){
+
+  if(!favoritos.includes(produto)){
+
+    favoritos.push(produto);
+
+    atualizarFavoritos();
+
+    alert("♡ Adicionado aos favoritos!");
+
+  }else{
+
+    alert("Esse produto já está nos seus favoritos ♡");
+
+  }
+
+}
+
+function atualizarFavoritos(){
+
+  let lista = document.getElementById("listaFavoritos");
+
+  lista.innerHTML = "";
+
+  favoritos.forEach((produto,index)=>{
+
+    let item = document.createElement("li");
+
+    item.innerHTML =
+      "♡ " + produto +
+      " <button onclick=\"favoritos.splice("+index+",1); atualizarFavoritos();\">×</button>";
+
+    lista.appendChild(item);
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
