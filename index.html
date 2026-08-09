@@ -370,7 +370,7 @@ style="width:120px; height:120px; object-fit:cover; border-radius:50%; border:4p
         <div class="acoes">
 
             <button class="acao" onclick="curtir()">
-                ♡ Curtir
+                ♡ Curtir <span id="contadorCurtidas">0</span>
             </button>
 
             <button class="acao" onclick="comentar()">
@@ -422,8 +422,18 @@ style="width:120px; height:120px; object-fit:cover; border-radius:50%; border:4p
 
 
         function curtir() {
+    let curtidas = Number(localStorage.getItem("curtidas")) || 0;
 
-            alert("Você curtiu essa publicação! ❤️");
+    if (localStorage.getItem("curtiu") !== "sim") {
+        curtidas++;
+        localStorage.setItem("curtidas", curtidas);
+        localStorage.setItem("curtiu", "sim");
+    }
+
+    document.getElementById("contadorCurtidas").textContent = curtidas;
+        }
+
+        
 
         }
 
